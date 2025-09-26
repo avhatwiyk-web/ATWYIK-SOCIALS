@@ -34,3 +34,32 @@ document.addEventListener("DOMContentLoaded", () => {
     public_metrics: "tw-followers", // will need extra formatting
   });
 });
+// Fetch stats from your backend and update the page
+async function fetchStats() {
+  try {
+    const res = await fetch("http://localhost:3000/api/stats"); // backend endpoint
+    const data = await res.json();
+
+    // === YouTube ===
+    document.getElementById("yt-subs").textContent = data.youtube.subs;
+    document.getElementById("yt-views").textContent = data.youtube.views;
+    document.getElementById("yt-videos").textContent = data.youtube.videos;
+
+    // === TikTok ===
+    document.getElementById("tt-followers").textContent = data.tiktok.followers;
+    document.getElementById("tt-likes").textContent = data.tiktok.likes;
+
+    // === Instagram ===
+    document.getElementById("ig-followers").textContent = data.instagram.followers;
+    document.getElementById("ig-posts").textContent = data.instagram.posts;
+
+    // === Twitter (X) ===
+    document.getElementById("tw-followers").textContent = data.twitter.followers;
+
+  } catch (error) {
+    console.error("Error fetching stats:", error);
+  }
+}
+
+// Call fetch on page load
+fetchStats();
