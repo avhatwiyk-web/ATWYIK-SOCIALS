@@ -97,3 +97,20 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
 });
+const express = require("express");
+const app = express();
+const PORT = 3000;
+
+// TEMPORARY: Fake data until APIs are connected
+app.get("/api/stats", (req, res) => {
+  res.json({
+    youtube: { subs: 1200, views: 45000, videos: 87 },
+    tiktok: { followers: 3300, likes: 89000 },
+    instagram: { followers: 2100, posts: 54 },
+    twitter: { followers: 750 }
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Backend running at http://localhost:${PORT}`);
+});
