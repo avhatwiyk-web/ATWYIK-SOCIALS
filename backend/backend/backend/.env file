@@ -1,3 +1,17 @@
-YOUTUBE_API_KEY=your_real_api_key_here
-YOUTUBE_CHANNEL_ID=your_channel_id_here
+# YouTube
+YOUTUBE_API_KEY=your_youtube_api_key
+YOUTUBE_CHANNEL_ID=your_channel_id
+
+# TikTok
+TIKTOK_ACCESS_TOKEN=your_tiktok_token
+
+# Instagram
+INSTAGRAM_USER_ID=your_instagram_id
+INSTAGRAM_ACCESS_TOKEN=your_instagram_access_token
+
+# Twitter (X)
+TWITTER_USER_ID=your_twitter_id
+TWITTER_BEARER_TOKEN=your_twitter_api_bearer_token
+
+# Server
 PORT=5000
