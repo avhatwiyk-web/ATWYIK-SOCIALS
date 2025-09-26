@@ -82,3 +82,20 @@ window.addEventListener("load", () => {
     document.getElementById("year-notes").value = saved.yearNotes;
   }
 });
+async function fetchYouTubeStats() {
+  try {
+    // Change this URL once backend is deployed (for now it’s Codespaces)
+    const response = await fetch("http://localhost:5000/youtube-stats");
+    const data = await response.json();
+
+    // Update the page
+    document.getElementById("yt-subs").textContent = data.subscriberCount;
+    document.getElementById("yt-views").textContent = data.viewCount;
+    document.getElementById("yt-videos").textContent = data.videoCount;
+  } catch (err) {
+    console.error("Error fetching YouTube stats:", err);
+  }
+}
+
+// Run on page load
+document.addEventListener("DOMContentLoaded", fetchYouTubeStats);
